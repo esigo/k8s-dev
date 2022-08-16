@@ -42,7 +42,7 @@ echo "Waiting for the ssh server to become available, it can take a while, after
 waitssh
 echo "✅ ssh server available"
 
-./ssh.sh "curl -sfL https://get.k3s.io | sh -"
+./ssh.sh "export INSTALL_K3S_EXEC='\"server --no-deploy traefik"'\ && curl -sfL https://get.k3s.io | sh -"
 
 mkdir -p ~/.kube
 ./scp.sh root@127.0.0.1:/etc/rancher/k3s/k3s.yaml ~/.kube/config
